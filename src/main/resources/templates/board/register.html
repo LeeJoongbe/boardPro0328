@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>리스트</title>
+</head>
+<body>
+
+
+<form action="/board/register" method="post" enctype="multipart/form-data">
+    제목 : <input name="title"><br>
+    내용 : <input name="content"><br>
+    작성자 : <input name="writer"><br>
+    <input name="multipartFile" type="file">
+    <button>저장</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>리스트</title>
+</head>
+<body>
+
+
+  <th:block th:if="${boardDTOList !=null}">
+    <div th:each="boardDTO : ${boardDTOList}">
+      <span th:text="${boardDTO.num}"></span>
+      <a th:href="'/board/read?num=' +${boardDTO.num}" >
+          <span th:text="${boardDTO.title}"></span>
+      </a>
+
+      <span th:text="${boardDTO.content}"></span>
+      <span th:text="${boardDTO.writer}"></span>
+    </div>
+  </th:block>
+
+</body>
+</html>

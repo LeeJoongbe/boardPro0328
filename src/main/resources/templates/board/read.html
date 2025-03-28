@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>리스트</title>
+</head>
+<body>
+[[${boardDTO}]]
+  <th:block th:if="${boardDTO != null}">
+    <div>
+      <span th:text="${boardDTO.num}"></span>
+      <span th:text="${boardDTO.title}"></span>
+      <span th:text="${boardDTO.content}"></span>
+      <span th:text="${boardDTO.writer}"></span>
+    </div>
+  </th:block>
+<th:block th:each="imgDTO:${boardDTO.imgDTOList}">
+[[${imgDTO}]]
+    <img th:src="${'https://' + bucket + '.s3.' + region + '.amazonaws.com/' + folder + '/' + imgDTO.newImgNm}"
+         alt="첨부 이미지">
+
+</th:block>
+
+</body>
+</html>

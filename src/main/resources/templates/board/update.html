@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>리스트</title>
+</head>
+<body>
+
+
+    <form action="/board/update" method="post">
+        번호 : <input name="num" th:value="${boardDTO.num}"><br>
+        제목 : <input name="title" th:value="${boardDTO.title}"><br>
+        내용 : <input name="content" th:value="${boardDTO.content}"><br>
+        작성자 : <input name="writer" th:value="${boardDTO.writer}"><br>
+        <button>저장</button>
+
+    </form>
+
+</body>
+</html>
