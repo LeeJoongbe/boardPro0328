@@ -83,6 +83,19 @@ dependencies {
     implementation 'org.modelmapper:modelmapper:3.1.0'
 
 
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0'
+// Thymeleaf 레이아웃 기능을 사용하기 위한 의존성을 추가합니다. 템플릿 조각을 정의하고 재사용하여 일관된 레이아웃을 만들 수 있게 해줍니다.
+
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+// Thymeleaf 템플릿에서 Spring Security 기능을 사용할 수 있도록 해주는 의존성을 추가합니다. 예를 들어, 사용자의 권한에 따라 내용을 보여주거나 감출 수 있습니다. Spring Security 6 버전에 맞춰 사용됩니다.
+
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+// Spring Security를 사용하여 애플리케이션의 보안 기능을 구현하기 위한 핵심 의존성을 추가합니다. 인증, 인가 등을 처리할 수 있습니다.
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+// Bean Validation API를 사용하여 데이터 유효성 검증을 수행하기 위한 의존성을 추가합니다. 폼 입력값 등의 유효성을 간편하게 검사할 수 있습니다.
+
+
 
 
 
