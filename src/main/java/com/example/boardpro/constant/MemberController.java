@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RequestMapping("/members")
 @Controller
@@ -29,7 +30,7 @@ public class MemberController {
 
     @PostMapping("/new")
     public String memberFormPost(@Valid MemberDTO memberDTO ,
-                                 BindingResult bindingResult, Model model){
+                                 BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes){
         //입력을 받을 때 유효성검사를 할것이며, //vailde?
 
         log.info("저장의 post로 들어온 memberDTO: " + memberDTO);
@@ -47,7 +48,11 @@ public class MemberController {
 
         // 유효성검사에 이상이 없다면 저장
         try {
+            String name =
             memberSerice.signUp(memberDTO);
+            // 특정 url로 이동시 메시지를 가지고 넘어갑니다.
+            redirectAttributes.addFlashAttribute("msg", name + "님 로그인을 해주세요.");
+
         }catch (IllegalStateException e){
 
             model.addAttribute("msg" , e.getMessage());
@@ -57,9 +62,10 @@ public class MemberController {
         }
 
 
-        //저장후 특정페이지로 이동하게 만들것이다.
 
-        return  "redirect:members/new";
+        //저장후 특정url로 이동하게 만들것이다.
+
+        return  "redirect:/members/login";
     }
 
 

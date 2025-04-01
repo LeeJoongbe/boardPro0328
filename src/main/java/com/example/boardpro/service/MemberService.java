@@ -50,9 +50,13 @@ public class MemberService implements UserDetailsService{
 
 
     //회원가입
-    public void signUp(MemberDTO memberDTO){
+    public String  signUp(MemberDTO memberDTO){
 
         Member member = memberRepository.findByEmail(memberDTO.getEmail());
+        log.info(member);
+        log.info(member);
+        log.info(member);
+        log.info(member);
 
         if (member != null) {
 
@@ -67,8 +71,10 @@ public class MemberService implements UserDetailsService{
         member = modelMapper.map(memberDTO , Member.class);
         member.setRole(Role.USER);
         member.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
+        member =
         memberRepository.save(member);
 
+        return member.getName();
     }
 
 

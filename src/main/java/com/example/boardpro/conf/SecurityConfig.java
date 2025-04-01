@@ -41,7 +41,7 @@ public class SecurityConfig {
                 // 로그인
                 .formLogin(
                         formLogin ->formLogin.loginPage("/members/login")      //기본 로그인 페이지 지정
-                                .defaultSuccessUrl("/")                     //로그인이 성공했다면
+                                .defaultSuccessUrl("/board/list")                     //로그인이 성공했다면
                                 .usernameParameter("email")                      //로그인 <input name="email">
                         //컨트롤러로 보낼때~~
                 )
@@ -51,7 +51,7 @@ public class SecurityConfig {
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))           //로그아웃 a태그라 생각
                                 //<a href="/user/logout">잘가~~</a>
                                 .invalidateHttpSession(true)
-                                .logoutSuccessUrl("/")
+                                .logoutSuccessUrl("/board/list")
 
                 )
         // 예외처리 // 로그인이 되지 않은 사용자 , 권한이 없는 사용자 접속시 취할 행동들

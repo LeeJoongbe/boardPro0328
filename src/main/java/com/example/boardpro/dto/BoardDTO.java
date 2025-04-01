@@ -3,7 +3,9 @@ package com.example.boardpro.dto;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -21,5 +23,9 @@ public class BoardDTO {
     private String  writer;
 
     private List<ImgDTO> imgDTOList;
+
+    private LocalDateTime regTime;
+    private LocalDateTime updateTime;
+
 
 }

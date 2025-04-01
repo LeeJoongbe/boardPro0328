@@ -1,6 +1,8 @@
 package com.example.boardpro.entity;
 
 
+import com.example.boardpro.entity.base.BaseEntity;
+import com.example.boardpro.entity.base.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +14,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @Table(name = "tbl_board")
-public class Board {
+public class Board  extends BaseTimeEntity {
 
 
     @Id
