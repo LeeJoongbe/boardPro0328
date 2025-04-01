@@ -43,17 +43,10 @@ public class BoardController {
     @PostMapping("/register")
     public String register(BoardDTO boardDTO, MultipartFile multipartFile){
 
-        log.info("등록 진입 post"+ boardDTO);
-        log.info("등록 진입 post");
-        log.info("등록 진입 post");
         try {
             boardService.register(boardDTO, multipartFile);
 
         }catch (Exception e) {
-            log.info("등록오류");
-            log.info("등록오류");
-            log.info("등록오류");
-            log.info("등록오류");
             e.printStackTrace();
         }
 
@@ -96,7 +89,7 @@ public class BoardController {
     @PostMapping("/update")
     public String update(BoardDTO boardDTO, MultipartFile multipartFile){
 
-        log.info("수정포스트 진입");
+        log.info("수정포스트 진입 : " + boardDTO);
 
         try {
             boardService.update(boardDTO, multipartFile);
